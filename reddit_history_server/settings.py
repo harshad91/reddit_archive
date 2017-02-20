@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'main'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -67,6 +68,17 @@ TEMPLATES = [
         },
     },
 ]
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.dummy'
+    }
+}
+
+from mongoengine import connect
+connect('reddit')
+
 
 WSGI_APPLICATION = 'reddit_history_server.wsgi.application'
 

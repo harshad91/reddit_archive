@@ -32,9 +32,8 @@ def subreddit_home(request,year, subreddit):
             'subreddit': subreddit,
             'submissions': []
         }
-
+        subs = ret_context['submissions']
         for result in search_results:
-            subs = ret_context['submissions']
             subs.append({
                 'title': result.title.encode('utf-8'),
                 'permalink': result.permalink.encode('utf-8'),
@@ -42,6 +41,8 @@ def subreddit_home(request,year, subreddit):
                 'created_utc': result.created_utc,
                 'num_comments': result.num_comments
             })
+
+        subs.sort(key=lambda x:x['created_utc'])
 
         return HttpResponse(
             template.render({"con": ret_context}, request)
