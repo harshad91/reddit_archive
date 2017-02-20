@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reddit History</title>
+</head>
+<body>
+
+<h1>Submissions on the subreddit {{ con.subreddit }}</h1>
+{% if con.submissions %}
+    <ol>
+        {% for sub in con.submissions %}
+            <li>
+                <a href="http://reddit.com{{ sub.permalink }}">{{ sub.title }}</a>
+                &nbsp;{{ sub.ups }}&nbsp;{{ sub.created_utc }}&nbsp;{{ sub.num_comments }}
+            </li>
+        {% endfor %}
+    </ol>
+{% endif %}
+</body>
+</html>

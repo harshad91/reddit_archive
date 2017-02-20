@@ -1,0 +1,4 @@
+*.pyc
+.idea/
+celerybeat-schedule
+nohup.out
